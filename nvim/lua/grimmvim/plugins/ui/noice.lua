@@ -1,12 +1,39 @@
+-- function for simplifying the views options
+local function getviews()
+	local views = {}
+	local all_views = {
+		"notify",
+		"split",
+		"vsplit",
+		"popup",
+		"mini",
+		"cmdline",
+		"cmdline_popup",
+		"cmdline_output",
+		"messages",
+		"confirm",
+		"hover",
+		"popupmenu",
+	}
+	for _, view in ipairs(all_views) do
+		-- disable the scrollbar for all views
+		views[view] = { scrollbar = false }
+	end
+	-- extra options
+	views["split"].enter = true
+	return views
+end
+
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
 	opts = {
+		-- views options
+		views = getviews(),
 		lsp = {
 			override = {
 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 				["vim.lsp.util.stylize_markdown"] = true,
-				["cmp.entry.get_documentation"] = true,
 			},
 			signature = {
 				enabled = false,
@@ -15,7 +42,6 @@ return {
 				enabled = false,
 			},
 		},
-
 		routes = {
 			{
 				filter = {
@@ -23,6 +49,10 @@ return {
 						{
 							event = { "notify", "msg_show" },
 							find = "No information available",
+						},
+						{
+							event = { "notify", "msg_show" },
+							find = "minifiles is not supported",
 						},
 						{
 							event = "msg_show",
@@ -36,7 +66,6 @@ return {
 				},
 			},
 		},
-
 		presets = {
 			bottom_search = false,
 			command_palette = true,
@@ -44,12 +73,8 @@ return {
 			lsp_doc_border = true,
 		},
 	},
-
 	config = function(_, opts)
 		local map = vim.keymap.set
-		-- HACK: noice shows messages from before it was enabled,
-		-- but this is not ideal when Lazy is installing plugins,
-		-- so clear the messages in this case.
 		if vim.o.filetype == "lazy" then
 			vim.cmd([[messages clear]])
 		end

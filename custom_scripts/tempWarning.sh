@@ -3,7 +3,7 @@
 # notify high temperature
 
 # Threshold in Celsius
-THRESHOLD=75
+THRESHOLD=80
 
 check_temp() {
   # Get CPU temp (modify grep/awk part if needed)
@@ -11,7 +11,7 @@ check_temp() {
 
   # If the temperature is not empty and above threshold
   if [[ -n "$TEMP" && "${TEMP%.*}" -ge "$THRESHOLD" ]]; then
-    notify-send "🔥 High Temperature" "CPU Temp is ${TEMP}°C"
+    notify-send -u critical "🔥 High Temperature" "CPU Temp is ${TEMP}°C"
   fi
 }
 

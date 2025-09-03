@@ -1,6 +1,7 @@
 # Cursor
 cursor-style = block
 cursor-style-blink = false
+adjust-cursor-height = -30%
 
 # fonts
 font-size = 15
@@ -16,8 +17,8 @@ adjust-cell-height = -10%
 # Window
 gtk-single-instance = true
 gtk-wide-tabs = false
-window-padding-x = 3,3
-window-padding-y = 3,0
+window-padding-x = 8,8
+window-padding-y = 8,0
 window-padding-balance = true
 window-decoration = false
 window-theme = system
@@ -27,7 +28,7 @@ gtk-adwaita = false
 title = "Ghostty"
 
 # theming
-background = #282828
+background = #222222
 foreground = #ebdbb2
 
 palette = 0=#3c3836
