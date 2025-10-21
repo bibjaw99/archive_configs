@@ -1,0 +1,14 @@
+ghostty
+hypr
+sway
+waybar
+nvim
+zathura
+fontconfig
+custom_scripts
+rofi
+mako
+walls
+zathura
+walls
+cava
