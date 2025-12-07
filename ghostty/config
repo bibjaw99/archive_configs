@@ -5,14 +5,15 @@ adjust-cursor-height = -30%
 
 # fonts
 font-size = 15
+font-feature = -calt
 
 font-family = "IosevkaTerm NFM SemiBold"
 font-family-bold = "IosevkaTerm NFM ExtraBold"
 font-family-italic = "IosevkaTerm NFM SemiBold"
 font-family-bold-italic = "IosevkaTerm NFM ExtraBold"
 
-adjust-cell-width = 0
-adjust-cell-height = -10%
+adjust-cell-width = 0%
+adjust-cell-height = -8%
 
 # Window
 gtk-single-instance = true
@@ -22,10 +23,10 @@ window-padding-y = 5,0
 window-padding-balance = true
 window-inherit-working-directory = false
 window-decoration = false
-window-theme = system
+window-theme = ghostty
 confirm-close-surface = false
 resize-overlay = never
-quit-after-last-window-closed=false
+quit-after-last-window-closed = true
 title = "Ghostty"
 window-subtitle = working-directory
 
